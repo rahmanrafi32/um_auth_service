@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 import 'dotenv/config'
 import config from './config'
-import { app } from './app'
+import { app } from './app/app'
 
 async function connectDB() {
   try {
