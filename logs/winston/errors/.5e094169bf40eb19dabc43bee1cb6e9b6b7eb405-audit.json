@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/home/rafi/Work/Programming Hero/UniversityManagementSystem/University_Management_System_Backend/logs/winston/errors/.5e094169bf40eb19dabc43bee1cb6e9b6b7eb405-audit.json",
+    "files": [
+        {
+            "date": 1685717033976,
+            "name": "/home/rafi/Work/Programming Hero/UniversityManagementSystem/University_Management_System_Backend/logs/winston/errors/phu-2023-06-02-20.log",
+            "hash": "92270a91c4ddc8a80d82ebc1c518681d570c725af8eea068fe38309cb55fcd2c"
+        }
+    ],
+    "hashType": "sha256"
+}
