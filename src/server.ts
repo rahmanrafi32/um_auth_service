@@ -1,20 +1,21 @@
 import mongoose from 'mongoose'
 import 'dotenv/config'
 import config from './config'
-import { app } from './app'
+import { app } from './app/app'
+import { errorLogger, infoLogger } from './shared/logger'
 
 async function connectDB() {
   try {
     await mongoose.connect(config.dbUrl as string)
-    console.log('Successfully Connected To DB')
+    infoLogger.info('Successfully Connected To DB')
   } catch (err) {
-    console.error('Failed to connect database')
+    errorLogger.error('Failed to connect database')
   }
 }
 
 connectDB().then(() => {
   app.listen(config.port, () => {
-    console.log(
+    infoLogger.info(
       `⚡️[server]: Server is running at http://localhost:${config.port}`
     )
   })
