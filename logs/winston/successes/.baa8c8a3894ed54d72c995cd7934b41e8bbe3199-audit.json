@@ -29,6 +29,21 @@
             "date": 1686061940131,
             "name": "/home/rafi/Work/Programming Hero/UniversityManagementSystem/University_Management_System_Backend/logs/winston/successes/phu-2023-06-06-20.log",
             "hash": "659e2f986f9d1d42a4e2a976b2ad0c5fb297e92affdcce3ef8eb7fa99de09ed7"
+        },
+        {
+            "date": 1686063656927,
+            "name": "/home/rafi/Work/Programming Hero/UniversityManagementSystem/University_Management_System_Backend/logs/winston/successes/phu-2023-06-06-21.log",
+            "hash": "16310ef69d4bcbf18aba98edb3bc7024a5926bd2282167b0b689579bc6e932b1"
+        },
+        {
+            "date": 1686466920831,
+            "name": "/home/rafi/Work/Programming Hero/UniversityManagementSystem/University_Management_System_Backend/logs/winston/successes/phu-2023-06-11-13.log",
+            "hash": "3edcb4de38918828283abe11da61c3a59330f94a0a867631b849b519dd7f6ee5"
+        },
+        {
+            "date": 1686470581356,
+            "name": "/home/rafi/Work/Programming Hero/UniversityManagementSystem/University_Management_System_Backend/logs/winston/successes/phu-2023-06-11-14.log",
+            "hash": "70d69a7fb8a17e3197a7bed53c7ea9c27a5fd6bbcdae1b7487c82691678a5905"
         }
     ],
     "hashType": "sha256"

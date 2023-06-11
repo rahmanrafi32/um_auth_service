@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
-import { ErrorMessage } from './error'
-import { commonErrorResponse } from './commonErrorResponse'
+import { ErrorMessage } from '../interfaces/error'
+import { commonErrorResponse } from '../interfaces/commonErrorResponse'
 
 const validationErrorHandler = (
   err: mongoose.Error.ValidationError

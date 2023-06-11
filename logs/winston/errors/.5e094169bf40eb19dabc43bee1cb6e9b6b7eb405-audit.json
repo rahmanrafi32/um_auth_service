@@ -6,29 +6,19 @@
     "auditLog": "/home/rafi/Work/Programming Hero/UniversityManagementSystem/University_Management_System_Backend/logs/winston/errors/.5e094169bf40eb19dabc43bee1cb6e9b6b7eb405-audit.json",
     "files": [
         {
-            "date": 1685717033976,
-            "name": "/home/rafi/Work/Programming Hero/UniversityManagementSystem/University_Management_System_Backend/logs/winston/errors/phu-2023-06-02-20.log",
-            "hash": "92270a91c4ddc8a80d82ebc1c518681d570c725af8eea068fe38309cb55fcd2c"
+            "date": 1686065558483,
+            "name": "/home/rafi/Work/Programming Hero/UniversityManagementSystem/University_Management_System_Backend/logs/winston/errors/phu-2023-06-06-21.log",
+            "hash": "0eb215b2231c59365772fe1ddab348aaac432a499bf75bb592071b35a18bfdb6"
         },
         {
-            "date": 1685979333069,
-            "name": "/home/rafi/Work/Programming Hero/UniversityManagementSystem/University_Management_System_Backend/logs/winston/errors/phu-2023-06-05-21.log",
-            "hash": "18ab9ca0b289b98078a5981519fd0ed7ff2bfc2ea77eb66d176a86f4237c5ee9"
+            "date": 1686466920835,
+            "name": "/home/rafi/Work/Programming Hero/UniversityManagementSystem/University_Management_System_Backend/logs/winston/errors/phu-2023-06-11-13.log",
+            "hash": "12b888d2a32679476cd26e9556def56401270c6b5994bfb5e9778ba6e8f06adc"
         },
         {
-            "date": 1685981031711,
-            "name": "/home/rafi/Work/Programming Hero/UniversityManagementSystem/University_Management_System_Backend/logs/winston/errors/phu-2023-06-05-22.log",
-            "hash": "d7659acd829b4dbcd9b68b224bedb4db9dba099a021d1973aedd285ebc17f56f"
-        },
-        {
-            "date": 1685985295539,
-            "name": "/home/rafi/Work/Programming Hero/UniversityManagementSystem/University_Management_System_Backend/logs/winston/errors/phu-2023-06-05-23.log",
-            "hash": "c68ebaa6c975807752460ea9c423d917a45b94883bb859ff95067b04e44ca463"
-        },
-        {
-            "date": 1686061940135,
-            "name": "/home/rafi/Work/Programming Hero/UniversityManagementSystem/University_Management_System_Backend/logs/winston/errors/phu-2023-06-06-20.log",
-            "hash": "b42d56d666cc5da6c37597be488a6540792b358e537a979bb2dbbfec2d9fa54d"
+            "date": 1686470581364,
+            "name": "/home/rafi/Work/Programming Hero/UniversityManagementSystem/University_Management_System_Backend/logs/winston/errors/phu-2023-06-11-14.log",
+            "hash": "4a8a6c9aab29cdd3066d3eb322775b79eeca709b78e64594773466d3a08d1f84"
         }
     ],
     "hashType": "sha256"

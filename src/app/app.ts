@@ -10,7 +10,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 app.use('/api/v1/users', userRoute)
-app.get('/', (req: Request, res: Response): void => {
+app.get('/', (req: Request, res: Response) => {
   res.status(200).json({ message: 'server is running successfully' })
 })
 
