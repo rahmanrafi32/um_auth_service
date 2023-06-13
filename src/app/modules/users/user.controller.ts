@@ -8,13 +8,12 @@ export const createUser: RequestHandler = catchAsync(
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     const { user } = req.body
     const result = await createUsers(user)
-    next()
     returnResponse(res, {
       statusCode: httpStatus.OK,
       success: true,
       message: 'User created successfully',
       data: result,
     })
-    res.status(200).json({})
+    next()
   }
 )
