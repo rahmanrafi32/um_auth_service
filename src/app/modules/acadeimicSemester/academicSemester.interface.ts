@@ -27,3 +27,12 @@ export type academicSemester = {
 export type semesterCodeMapper = {
   [key: string]: string
 }
+
+export type genericResponse<T> = {
+  meta: {
+    page: number
+    limit: number
+    total: number
+  }
+  data: T
+}
