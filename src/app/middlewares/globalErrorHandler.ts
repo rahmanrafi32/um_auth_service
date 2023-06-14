@@ -6,8 +6,9 @@ import ApiError from '../../errors/ApiError'
 import { errorLogger } from '../../shared/logger'
 import { ZodError } from 'zod'
 import zodErrorHandler from '../../errors/zodErrorHandler'
+import castErrorHandler from '../../errors/castErrorHandler'
 
-const globalErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
+const globalErrorHandler: ErrorRequestHandler = (err, req, res) => {
   if (config.env === 'development') {
     console.log('global error handler', err)
   } else errorLogger.error('global error handler', err)
@@ -37,6 +38,18 @@ const globalErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
           },
         ]
       : []
+  } else if (err?.name === 'CastError') {
+    const castError = castErrorHandler(err)
+    statusCode = castError?.statusCode
+    message = castError?.message
+    errorMessages = castError?.message
+      ? [
+          {
+            path: 'CastError',
+            message: castError.message,
+          },
+        ]
+      : []
   } else if (err instanceof Error) {
     message = err?.message
     errorMessages = err?.message
@@ -55,8 +68,6 @@ const globalErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
     errorMessages,
     stack: config.env !== 'production' ? err?.stack : undefined,
   })
-
-  next()
 }
 
 export default globalErrorHandler

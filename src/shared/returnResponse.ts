@@ -6,11 +6,9 @@ const returnResponse = <T>(res: Response, data: sendResponse<T>): void => {
     statusCode: data.statusCode,
     success: data.success,
     message: data.message,
-    meta: data.meta,
+    meta: data.meta || null || undefined,
     data: data.data || null,
   }
-
   res.status(data.statusCode).json(responseData)
 }
-
 export default returnResponse

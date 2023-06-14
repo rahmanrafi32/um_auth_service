@@ -18,7 +18,7 @@ export type academicSemesterCode = '01' | '02' | '03'
 
 export type academicSemester = {
   title: academicSemesterTitle
-  year: number
+  year: string
   code: academicSemesterCode
   startMonth: Month
   endMonth: Month
@@ -35,4 +35,8 @@ export type genericResponse<T> = {
     total: number
   }
   data: T
+}
+
+export type academicSemesterFilter = {
+  searchTerm: string
 }
