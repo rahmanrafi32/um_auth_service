@@ -5,3 +5,12 @@ export type commonErrorResponse = {
   message: string
   errorMessages: ErrorMessage[]
 }
+
+export type genericResponse<T> = {
+  meta: {
+    page: number
+    limit: number
+    total: number
+  }
+  data: T
+}

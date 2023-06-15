@@ -4,10 +4,10 @@ import {
 } from './academicFaculty.interface'
 import { AcademicFaculty } from './academicFaculty.model'
 import { paginationOption } from '../../../interfaces/paginationOption'
-import { genericResponse } from '../../../interfaces/commonErrorResponse'
 import calculatePagination from '../../../helper/paginationHelper'
 import { academicFacultySearchableFields } from './academicFaculty.constants'
 import { SortOrder } from 'mongoose'
+import { genericResponse } from '../../../interfaces/commonErrorResponse'
 
 const createFaculty = async (
   payload: academicFaculty

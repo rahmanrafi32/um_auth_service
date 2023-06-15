@@ -1,7 +1,6 @@
 import {
   academicSemester,
   academicSemesterFilter,
-  genericResponse,
 } from './academicSemester.interface'
 import { AcademicSemester } from './academicSemester.model'
 import {
@@ -13,6 +12,7 @@ import httpStatus from 'http-status'
 import { paginationOption } from '../../../interfaces/paginationOption'
 import calculatePagination from '../../../helper/paginationHelper'
 import { SortOrder } from 'mongoose'
+import { genericResponse } from '../../../interfaces/commonErrorResponse'
 
 const createSemester = async (
   paginationOptions: academicSemester
