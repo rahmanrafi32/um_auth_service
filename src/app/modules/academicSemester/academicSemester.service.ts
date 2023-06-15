@@ -15,12 +15,15 @@ import { SortOrder } from 'mongoose';
 import { genericResponse } from '../../../interfaces/commonErrorResponse';
 
 const createSemester = async (
-  payload: academicSemester
+  paginationOptions: academicSemester
 ): Promise<academicSemester> => {
-  if (academicSemesterTitleCodeMapper[payload.title] !== payload.code) {
+  if (
+    academicSemesterTitleCodeMapper[paginationOptions.title] !==
+    paginationOptions.code
+  ) {
     throw new ApiError(httpStatus.BAD_REQUEST, 'Invalid semester code');
   }
-  return await AcademicSemester.create(payload);
+  return await AcademicSemester.create(paginationOptions);
 };
 
 const getAllSemesters = async (
