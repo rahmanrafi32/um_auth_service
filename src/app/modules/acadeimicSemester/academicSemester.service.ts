@@ -1,41 +1,38 @@
 import {
   academicSemester,
   academicSemesterFilter,
-  genericResponse,
-} from './academicSemester.interface'
-import { AcademicSemester } from './academicSemester.model'
+} from './academicSemester.interface';
+import { AcademicSemester } from './academicSemester.model';
 import {
   academicSemesterTitleCodeMapper,
   searchableFields,
-} from './academicSemester.constant'
-import ApiError from '../../../errors/ApiError'
-import httpStatus from 'http-status'
-import { paginationOption } from '../../../interfaces/paginationOption'
-import calculatePagination from '../../../helper/paginationHelper'
-import { SortOrder } from 'mongoose'
+} from './academicSemester.constant';
+import ApiError from '../../../errors/ApiError';
+import httpStatus from 'http-status';
+import { paginationOption } from '../../../interfaces/paginationOption';
+import calculatePagination from '../../../helper/paginationHelper';
+import { SortOrder } from 'mongoose';
+import { genericResponse } from '../../../interfaces/commonErrorResponse';
 
 const createSemester = async (
-  paginationOptions: academicSemester
+  payload: academicSemester
 ): Promise<academicSemester> => {
-  if (
-    academicSemesterTitleCodeMapper[paginationOptions.title] !==
-    paginationOptions.code
-  ) {
-    throw new ApiError(httpStatus.BAD_REQUEST, 'Invalid semester code')
+  if (academicSemesterTitleCodeMapper[payload.title] !== payload.code) {
+    throw new ApiError(httpStatus.BAD_REQUEST, 'Invalid semester code');
   }
-  return await AcademicSemester.create(paginationOptions)
-}
+  return await AcademicSemester.create(payload);
+};
 
 const getAllSemesters = async (
   paginationOptions: paginationOption,
   filters: Partial<academicSemesterFilter>
 ): Promise<genericResponse<academicSemester[]>> => {
   const { page, limit, skip, sortBy, sortOrder } =
-    calculatePagination(paginationOptions)
-  const sortConditions: { [key: string]: SortOrder } = {}
-  const { searchTerm, ...filtersData } = filters
+    calculatePagination(paginationOptions);
+  const sortConditions: { [key: string]: SortOrder } = {};
+  const { searchTerm, ...filtersData } = filters;
 
-  const andConditions = []
+  const andConditions = [];
 
   if (searchTerm) {
     andConditions.push({
@@ -45,7 +42,7 @@ const getAllSemesters = async (
           $options: 'i',
         },
       })),
-    })
+    });
   }
 
   if (Object.keys(filtersData).length) {
@@ -53,21 +50,22 @@ const getAllSemesters = async (
       $and: Object.entries(filtersData).map(([fields, value]) => ({
         [fields]: value,
       })),
-    })
+    });
   }
 
   if (sortBy && sortOrder) {
-    sortConditions[sortBy] = sortOrder
+    sortConditions[sortBy] = sortOrder;
   }
 
-  const whereCondition = andConditions.length > 0 ? { $and: andConditions } : {}
+  const whereCondition =
+    andConditions.length > 0 ? { $and: andConditions } : {};
 
   const result = await AcademicSemester.find(whereCondition)
     .sort(sortConditions)
     .skip(skip)
-    .limit(limit)
+    .limit(limit);
 
-  const total = await AcademicSemester.count()
+  const total = await AcademicSemester.count();
 
   return {
     meta: {
@@ -76,14 +74,14 @@ const getAllSemesters = async (
       total,
     },
     data: result,
-  }
-}
+  };
+};
 
 const getSemesterById = async (
   id: string
 ): Promise<academicSemester | null> => {
-  return AcademicSemester.findById(id)
-}
+  return AcademicSemester.findById(id);
+};
 
 const updateSemester = async (
   id: string,
@@ -94,16 +92,16 @@ const updateSemester = async (
     updateField.code &&
     academicSemesterTitleCodeMapper[updateField.title] !== updateField.code
   ) {
-    throw new ApiError(httpStatus.BAD_REQUEST, 'Invalid semester code')
+    throw new ApiError(httpStatus.BAD_REQUEST, 'Invalid semester code');
   }
   return AcademicSemester.findOneAndUpdate({ _id: id }, updateField, {
     new: true,
-  })
-}
+  });
+};
 
 const deleteSemester = async (id: string) => {
-  return AcademicSemester.findOneAndDelete({ _id: id }, { new: true })
-}
+  return AcademicSemester.findOneAndDelete({ _id: id }, { new: true });
+};
 
 export const academicSemesterService = {
   createSemester,
@@ -111,4 +109,4 @@ export const academicSemesterService = {
   getSemesterById,
   updateSemester,
   deleteSemester,
-}
+};

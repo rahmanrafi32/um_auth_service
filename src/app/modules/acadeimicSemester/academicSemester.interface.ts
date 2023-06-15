@@ -10,33 +10,24 @@ export type Month =
   | 'September'
   | 'October'
   | 'November'
-  | 'December'
+  | 'December';
 
-export type academicSemesterTitle = 'Autumn' | 'Summer' | 'Fall'
+export type academicSemesterTitle = 'Autumn' | 'Summer' | 'Fall';
 
-export type academicSemesterCode = '01' | '02' | '03'
+export type academicSemesterCode = '01' | '02' | '03';
 
 export type academicSemester = {
-  title: academicSemesterTitle
-  year: string
-  code: academicSemesterCode
-  startMonth: Month
-  endMonth: Month
-}
+  title: academicSemesterTitle;
+  year: string;
+  code: academicSemesterCode;
+  startMonth: Month;
+  endMonth: Month;
+};
 
 export type semesterCodeMapper = {
-  [key: string]: string
-}
-
-export type genericResponse<T> = {
-  meta: {
-    page: number
-    limit: number
-    total: number
-  }
-  data: T
-}
+  [key: string]: string;
+};
 
 export type academicSemesterFilter = {
-  searchTerm: string
-}
+  searchTerm: string;
+};
