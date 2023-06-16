@@ -44,6 +44,21 @@
       "date": 1686636377327,
       "name": "/home/rafi/Work/Programming Hero/UniversityManagementSystem/University_Management_System_Backend/logs/winston/errors/phu-2023-06-13-12.log",
       "hash": "1383ab2362b06544b180b0258489f7d038b756303d1b58eaa3475de48e80e890"
+    },
+    {
+      "date": 1686813270849,
+      "name": "/home/rafi/Work/Programming Hero/UniversityManagementSystem/University_Management_System_Backend/logs/winston/errors/phu-2023-06-15-13.log",
+      "hash": "c6a1bac28e9f1e4013191d86c8f08034d82b7892e55bf8b03252cca2f9a34ca2"
+    },
+    {
+      "date": 1686816008257,
+      "name": "/home/rafi/Work/Programming Hero/UniversityManagementSystem/University_Management_System_Backend/logs/winston/errors/phu-2023-06-15-14.log",
+      "hash": "56dc212c0bd5b081b63f09edb888042f9ef27ec3d6e2b4ea19833f09f4a0a5b2"
+    },
+    {
+      "date": 1686926659111,
+      "name": "/home/rafi/Work/Programming Hero/UniversityManagementSystem/University_Management_System_Backend/logs/winston/errors/phu-2023-06-16-20.log",
+      "hash": "c53064278b2c3b64a8fb892779d301f043ed4e81601c7692b553697d306249d3"
     }
   ],
   "hashType": "sha256"

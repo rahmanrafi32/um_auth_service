@@ -1,5 +1,5 @@
-import { AnyZodObject, ZodEffects } from 'zod'
-import { NextFunction, Request, Response } from 'express'
+import { AnyZodObject, ZodEffects } from 'zod';
+import { NextFunction, Request, Response } from 'express';
 
 export const validateRequest =
   (schema: AnyZodObject | ZodEffects<AnyZodObject>) =>
@@ -10,9 +10,9 @@ export const validateRequest =
         query: req.query,
         params: req.params,
         cookies: req.cookies,
-      })
-      return next()
+      });
+      return next();
     } catch (error) {
-      next(error)
+      next(error);
     }
-  }
+  };

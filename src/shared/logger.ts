@@ -1,14 +1,14 @@
-import { createLogger, format, Logger, transports } from 'winston'
-import 'winston-daily-rotate-file'
-import moment from 'moment'
-import path from 'path'
+import { createLogger, format, Logger, transports } from 'winston';
+import 'winston-daily-rotate-file';
+import moment from 'moment';
+import path from 'path';
 
-const { combine, timestamp, label, printf } = format
+const { combine, timestamp, label, printf } = format;
 
 const logFormatter = printf(({ level, message, label, timestamp }) => {
-  const formattedTime = moment(timestamp).format('DD MMM YYYY HH:mm:ss')
-  return `${formattedTime} [${label}] ${level}: ${message}`
-})
+  const formattedTime = moment(timestamp).format('DD MMM YYYY HH:mm:ss');
+  return `${formattedTime} [${label}] ${level}: ${message}`;
+});
 export const infoLogger: Logger = createLogger({
   level: 'info',
   format: combine(
@@ -32,7 +32,7 @@ export const infoLogger: Logger = createLogger({
       maxFiles: '14d',
     }),
   ],
-})
+});
 
 export const errorLogger: Logger = createLogger({
   level: 'error',
@@ -57,4 +57,4 @@ export const errorLogger: Logger = createLogger({
       maxFiles: '14d',
     }),
   ],
-})
+});

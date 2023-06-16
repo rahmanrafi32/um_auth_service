@@ -1,6 +1,6 @@
-import express from 'express'
+import express from 'express';
 
 export type routerMap = {
-  path: string
-  route: express.Router
-}
+  path: string;
+  route: express.Router;
+};

@@ -1,5 +1,5 @@
-import { Response } from 'express'
-import { sendResponse } from '../interfaces/sendResponse'
+import { Response } from 'express';
+import { sendResponse } from '../interfaces/sendResponse';
 
 const returnResponse = <T>(res: Response, data: sendResponse<T>): void => {
   const responseData: sendResponse<T> = {
@@ -8,7 +8,7 @@ const returnResponse = <T>(res: Response, data: sendResponse<T>): void => {
     message: data.message,
     meta: data.meta || null || undefined,
     data: data.data || null,
-  }
-  res.status(data.statusCode).json(responseData)
-}
-export default returnResponse
+  };
+  res.status(data.statusCode).json(responseData);
+};
+export default returnResponse;

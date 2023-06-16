@@ -6,11 +6,6 @@
   "auditLog": "/home/rafi/Work/Programming Hero/UniversityManagementSystem/University_Management_System_Backend/logs/winston/successes/.baa8c8a3894ed54d72c995cd7934b41e8bbe3199-audit.json",
   "files": [
     {
-      "date": 1685717033971,
-      "name": "/home/rafi/Work/Programming Hero/UniversityManagementSystem/University_Management_System_Backend/logs/winston/successes/phu-2023-06-02-20.log",
-      "hash": "cf6863f4c20493d8223288494e4a7a92b98e99a960edf5af84fe3be039a706cb"
-    },
-    {
       "date": 1685979333065,
       "name": "/home/rafi/Work/Programming Hero/UniversityManagementSystem/University_Management_System_Backend/logs/winston/successes/phu-2023-06-05-21.log",
       "hash": "915e242dab4df176d2517cd5a1cf7fb2ec7f69668f02c66c36508d559167e850"
@@ -69,6 +64,21 @@
       "date": 1686636377324,
       "name": "/home/rafi/Work/Programming Hero/UniversityManagementSystem/University_Management_System_Backend/logs/winston/successes/phu-2023-06-13-12.log",
       "hash": "5130612601af668afed20e75e53cf134c1ddea0c21239d2ab7545cdf3c7ca7ff"
+    },
+    {
+      "date": 1686813225821,
+      "name": "/home/rafi/Work/Programming Hero/UniversityManagementSystem/University_Management_System_Backend/logs/winston/successes/phu-2023-06-15-13.log",
+      "hash": "67a60752bb292c65b558df388c97fb9681e6f413696f8ba2e21513fbc0164d97"
+    },
+    {
+      "date": 1686816008250,
+      "name": "/home/rafi/Work/Programming Hero/UniversityManagementSystem/University_Management_System_Backend/logs/winston/successes/phu-2023-06-15-14.log",
+      "hash": "66a0a7ae50c602372ce3706555cdc0679c964610bcef65129f553be8c6a1d50d"
+    },
+    {
+      "date": 1686926659107,
+      "name": "/home/rafi/Work/Programming Hero/UniversityManagementSystem/University_Management_System_Backend/logs/winston/successes/phu-2023-06-16-20.log",
+      "hash": "482e88155bf5a4c7ee69e8fb9a66b4fb05fc2d2b5be942419051ad466da97268"
     }
   ],
   "hashType": "sha256"
