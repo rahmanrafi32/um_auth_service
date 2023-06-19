@@ -47,14 +47,15 @@ export const findLastAdminId = async (): Promise<string | null> => {
 };
 
 export const generateStudentId = async (
-  academicSemester: academicSemester
-): Promise<string> => {
+  academicSemester: academicSemester | null
+): Promise<string | undefined> => {
   const currentId =
     (await findLastStudentId()) || (0).toString().padStart(5, '0');
   const incrementID = (parseInt(currentId) + 1).toString().padStart(5, '0');
-  return `${academicSemester.year.substring(2)}-${
-    academicSemester.code
-  }-${incrementID}`;
+  if (academicSemester)
+    return `${academicSemester.year.substring(2)}-${
+      academicSemester.code
+    }-${incrementID}`;
 };
 
 export const generateFacultyId = async (): Promise<string> => {

@@ -1,12 +1,13 @@
 import { Request, RequestHandler, Response } from 'express';
-import { createUsers } from './user.service';
 import catchAsync from '../../../shared/catchAsync';
 import returnResponse from '../../../shared/returnResponse';
 import httpStatus from 'http-status';
+import { userService } from './user.service';
 
-export const createUser: RequestHandler = catchAsync(
+const createStudent: RequestHandler = catchAsync(
   async (req: Request, res: Response): Promise<void> => {
-    const result = await createUsers(req.body);
+    const { student, ...userData } = req.body;
+    const result = await userService.createStudent(student, userData);
     returnResponse(res, {
       statusCode: httpStatus.OK,
       success: true,
@@ -15,3 +16,7 @@ export const createUser: RequestHandler = catchAsync(
     });
   }
 );
+
+export const userController = {
+  createStudent,
+};

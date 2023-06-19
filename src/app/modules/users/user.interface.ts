@@ -2,7 +2,7 @@ import { Types } from 'mongoose';
 import { IStudent } from '../students/students.interface';
 
 export type IUser = {
-  id: string;
+  id: string | undefined;
   role: string;
   password: string;
   student?: Types.ObjectId | IStudent;

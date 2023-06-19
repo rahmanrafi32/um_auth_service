@@ -7,7 +7,8 @@
     "dev": "tsnd --respawn src/server.ts",
     "lint": "eslint --ignore-path .eslintignore --ext .js,.ts .",
     "prettier": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
-    "lint-prettier": "yarn lint && yarn prettier"
+    "lint-prettier": "yarn lint && yarn prettier",
+    "build": "tsc"
   },
   "keywords": [],
   "author": "Md Minhazur Rahman Rafi",

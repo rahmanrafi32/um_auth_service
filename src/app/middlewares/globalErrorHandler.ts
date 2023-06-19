@@ -1,4 +1,4 @@
-import { ErrorRequestHandler } from 'express';
+import { ErrorRequestHandler, NextFunction } from 'express';
 import config from '../../config';
 import { ErrorMessage } from '../../interfaces/error';
 import validationErrorHandler from '../../errors/validationErrorHandler';
@@ -8,8 +8,12 @@ import { ZodError } from 'zod';
 import zodErrorHandler from '../../errors/zodErrorHandler';
 import castErrorHandler from '../../errors/castErrorHandler';
 
-const globalErrorHandler: ErrorRequestHandler = (err, req, res) => {
-  console.log('its here');
+const globalErrorHandler: ErrorRequestHandler = (
+  err,
+  req,
+  res,
+  next: NextFunction
+) => {
   if (config.env === 'development') {
     console.log('global error handler', err);
   } else errorLogger.error('global error handler', err);
@@ -69,6 +73,8 @@ const globalErrorHandler: ErrorRequestHandler = (err, req, res) => {
     errorMessages,
     stack: config.env !== 'production' ? err?.stack : undefined,
   });
+
+  next();
 };
 
 export default globalErrorHandler;

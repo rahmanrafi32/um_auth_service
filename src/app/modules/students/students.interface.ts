@@ -27,7 +27,7 @@ export type LocalGuardian = {
 };
 
 export type IStudent = {
-  id: string;
+  id: string | undefined;
   name: UserName; //embedded object
   gender: 'male' | 'female';
   dateOfBirth: string;
