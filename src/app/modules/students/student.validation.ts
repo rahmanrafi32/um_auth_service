@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import { bloodGroup, gender } from './students.constants';
 
-export const creatStudentZodSchema = z.object({
+export const updateStudentZodSchema = z.object({
   body: z.object({
     name: z.object({
       firstName: z.string().optional(),
