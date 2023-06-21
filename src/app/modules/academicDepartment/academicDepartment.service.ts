@@ -4,21 +4,22 @@ import {
 } from './academicDepartment.interface';
 import { academicDepartmentSearchableFields } from './academicDepartment.constants';
 import { paginationOption } from '../../../interfaces/paginationOption';
-import { genericResponse } from '../../../interfaces/commonErrorResponse';
+import { GenericResponse } from '../../../interfaces/commonErrorResponse';
 import calculatePagination from '../../../helper/paginationHelper';
 import { SortOrder } from 'mongoose';
 import { AcademicDepartment } from './academicDepartment.model';
+import generateAndCondition from '../../../helper/generateAndCondition';
 
 const getAllDepartments = async (
   filters: academicDepartmentFilters,
   paginationOptions: paginationOption
-): Promise<genericResponse<academicDepartment[]>> => {
+): Promise<GenericResponse<academicDepartment[]>> => {
   const { limit, page, skip, sortBy, sortOrder } =
     calculatePagination(paginationOptions);
 
   const { searchTerm, ...filtersData } = filters;
 
-  const andConditions = [];
+  let andConditions = [];
 
   if (searchTerm) {
     andConditions.push({
@@ -31,13 +32,15 @@ const getAllDepartments = async (
     });
   }
 
-  if (Object.keys(filtersData).length) {
-    andConditions.push({
-      $and: Object.entries(filtersData).map(([field, value]) => ({
-        [field]: value,
-      })),
-    });
-  }
+  andConditions = generateAndCondition(filtersData);
+
+  // if (Object.keys(filtersData).length) {
+  //   andConditions.push({
+  //     $and: Object.entries(filtersData).map(([field, value]) => ({
+  //       [field]: value,
+  //     })),
+  //   });
+  // }
 
   const sortConditions: { [key: string]: SortOrder } = {};
 

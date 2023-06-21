@@ -12,7 +12,7 @@ import httpStatus from 'http-status';
 import { paginationOption } from '../../../interfaces/paginationOption';
 import calculatePagination from '../../../helper/paginationHelper';
 import { SortOrder } from 'mongoose';
-import { genericResponse } from '../../../interfaces/commonErrorResponse';
+import { GenericResponse } from '../../../interfaces/commonErrorResponse';
 
 const createSemester = async (
   paginationOptions: academicSemester
@@ -29,7 +29,7 @@ const createSemester = async (
 const getAllSemesters = async (
   paginationOptions: paginationOption,
   filters: Partial<academicSemesterFilter>
-): Promise<genericResponse<academicSemester[]>> => {
+): Promise<GenericResponse<academicSemester[]>> => {
   const { page, limit, skip, sortBy, sortOrder } =
     calculatePagination(paginationOptions);
   const sortConditions: { [key: string]: SortOrder } = {};

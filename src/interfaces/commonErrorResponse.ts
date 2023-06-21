@@ -6,7 +6,7 @@ export type commonErrorResponse = {
   errorMessages: ErrorMessage[];
 };
 
-export type genericResponse<T> = {
+export type GenericResponse<T> = {
   meta: {
     page: number;
     limit: number;
