@@ -1,7 +1,11 @@
 import express, { Router } from 'express';
 import { userController } from './user.controller';
 import { validateRequest } from '../../middlewares/validateRequest';
-import { createUserZodSchema } from './user.validation';
+import {
+  createAdminZodSchema,
+  createFacultyZodSchema,
+  createUserZodSchema,
+} from './user.validation';
 
 const router: Router = express.Router();
 
@@ -13,13 +17,13 @@ router.post(
 
 router.post(
   '/create-faculty',
-  validateRequest(createUserZodSchema),
+  validateRequest(createFacultyZodSchema),
   userController.createStudent
 );
 
 router.post(
   '/create-admin',
-  validateRequest(createUserZodSchema),
+  validateRequest(createAdminZodSchema),
   userController.createStudent
 );
 

@@ -46,7 +46,7 @@ export const createUserZodSchema = z.object({
         required_error: 'Academic department is required',
       }),
       academicFaculty: z.string({
-        required_error: 'Academic faculty is required',
+        required_error: 'Academic faculties is required',
       }),
       guardian: z.object({
         fatherName: z.string({
@@ -137,7 +137,7 @@ export const createFacultyZodSchema = z.object({
       }),
 
       academicFaculty: z.string({
-        required_error: 'Academic faculty is required',
+        required_error: 'Academic faculties is required',
       }),
       designation: z.string({
         required_error: 'Designation is required',

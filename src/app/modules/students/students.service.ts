@@ -9,6 +9,7 @@ import { GenericResponse } from '../../../interfaces/commonErrorResponse';
 import calculatePagination from '../../../helper/paginationHelper';
 import { studentSearchableFields } from './students.constants';
 import generateAndCondition from '../../../helper/generateAndCondition';
+import updateData from '../../../helper/updateData';
 
 const getAllStudents = async (
   filters: IStudentFilters,
@@ -90,27 +91,31 @@ const updateStudent = async (
 
   const updatedStudentData: Partial<IStudent> = { ...studentData };
 
-  if (name && Object.keys(name).length > 0) {
-    Object.keys(name).forEach((key) => {
-      const nameKey = `name.${key}` as keyof Partial<IStudent>; // `name.fisrtName`
-      (updatedStudentData as any)[nameKey] = name[key as keyof typeof name];
-    });
-  }
-  if (guardian && Object.keys(guardian).length > 0) {
-    Object.keys(guardian).forEach((key) => {
-      const guardianKey = `guardian.${key}` as keyof Partial<IStudent>; // `guardian.fisrtguardian`
-      (updatedStudentData as any)[guardianKey] =
-        guardian[key as keyof typeof guardian];
-    });
-  }
-  if (localGuardian && Object.keys(localGuardian).length > 0) {
-    Object.keys(localGuardian).forEach((key) => {
-      const localGuradianKey =
-        `localGuardian.${key}` as keyof Partial<IStudent>; // `localGuardian.fisrtName`
-      (updatedStudentData as any)[localGuradianKey] =
-        localGuardian[key as keyof typeof localGuardian];
-    });
-  }
+  // if (name && Object.keys(name).length > 0) {
+  //   Object.keys(name).forEach((key) => {
+  //     const nameKey = `name.${key}` as keyof Partial<IStudent>; // `name.fisrtName`
+  //     (updatedStudentData as any)[nameKey] = name[key as keyof typeof name];
+  //   });
+  // }
+  // if (guardian && Object.keys(guardian).length > 0) {
+  //   Object.keys(guardian).forEach((key) => {
+  //     const guardianKey = `guardian.${key}` as keyof Partial<IStudent>; // `guardian.fisrtguardian`
+  //     (updatedStudentData as any)[guardianKey] =
+  //       guardian[key as keyof typeof guardian];
+  //   });
+  // }
+  // if (localGuardian && Object.keys(localGuardian).length > 0) {
+  //   Object.keys(localGuardian).forEach((key) => {
+  //     const localGuradianKey =
+  //       `localGuardian.${key}` as keyof Partial<IStudent>; // `localGuardian.fisrtName`
+  //     (updatedStudentData as any)[localGuradianKey] =
+  //       localGuardian[key as keyof typeof localGuardian];
+  //   });
+  // }
+
+  updateData(name, 'name', updatedStudentData);
+  updateData(guardian, 'guardian', updatedStudentData);
+  updateData(localGuardian, 'localGuardian', updatedStudentData);
 
   return Student.findOneAndUpdate({ id }, updatedStudentData, {
     new: true,
