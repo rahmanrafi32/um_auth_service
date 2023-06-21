@@ -26,6 +26,10 @@ const moduleRoutes: routerMap[] = [
     route: departmentRoutes,
   },
   {
+    path: '/faculties',
+    route: FacultyRoutes,
+  },
+  {
     path: '/students',
     route: studentsRoutes,
   },
