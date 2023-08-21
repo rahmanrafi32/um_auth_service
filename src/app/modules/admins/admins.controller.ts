@@ -4,7 +4,7 @@ import catchAsync from '../../../shared/catchAsync';
 import pick from '../../../shared/pick';
 import { adminFilterableFields } from './admins.constant';
 import { paginationFields } from '../../../constants';
-import { AdminService } from './admins.service';
+import { adminService } from './admins.service';
 import { IAdmin } from './admins.interface';
 import returnResponse from '../../../shared/returnResponse';
 
@@ -12,7 +12,7 @@ const getAllAdmins = catchAsync(async (req: Request, res: Response) => {
   const filters = pick(req.query, adminFilterableFields);
   const paginationOptions = pick(req.query, paginationFields);
 
-  const result = await AdminService.getAllAdmins(filters, paginationOptions);
+  const result = await adminService.getAllAdmins(filters, paginationOptions);
 
   returnResponse<IAdmin[]>(res, {
     statusCode: httpStatus.OK,
@@ -25,7 +25,7 @@ const getAllAdmins = catchAsync(async (req: Request, res: Response) => {
 
 const getSingleAdmin = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id;
-  const result = await AdminService.getSingleAdmin(id);
+  const result = await adminService.getSingleAdmin(id);
 
   returnResponse<IAdmin>(res, {
     statusCode: httpStatus.OK,
@@ -39,7 +39,7 @@ const updateAdmin = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id;
   const updatedData = req.body;
 
-  const result = await AdminService.updateAdmin(id, updatedData);
+  const result = await adminService.updateAdmin(id, updatedData);
 
   returnResponse<IAdmin>(res, {
     statusCode: httpStatus.OK,
@@ -51,7 +51,7 @@ const updateAdmin = catchAsync(async (req: Request, res: Response) => {
 const deleteAdmin = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id;
 
-  const result = await AdminService.deleteAdmin(id);
+  const result = await adminService.deleteAdmin(id);
 
   returnResponse<IAdmin>(res, {
     statusCode: httpStatus.OK,

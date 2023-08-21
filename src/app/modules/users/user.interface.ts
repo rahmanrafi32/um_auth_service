@@ -1,4 +1,4 @@
-import { Types } from 'mongoose';
+import { Model, Types } from 'mongoose';
 import { IStudent } from '../students/students.interface';
 
 export type IUser = {
@@ -8,4 +8,11 @@ export type IUser = {
   student?: Types.ObjectId | IStudent;
   faculty?: Types.ObjectId;
   admin?: Types.ObjectId;
+  needsPasswordChange: boolean;
+  passwordChangedAt: Date;
 };
+
+export type IUserModel = {
+  isUserExist(id: string): Promise<Partial<IUser>>;
+  isPasswordMatched(givenPass: string, savedPass: string): Promise<boolean>;
+} & Model<IUser>;

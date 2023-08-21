@@ -115,12 +115,12 @@ export const studentSchema = new Schema(
     },
     academicFaculty: {
       type: Schema.Types.ObjectId,
-      ref: 'Academic Faculty',
+      ref: 'AcademicFaculty',
       required: true,
     },
     academicDepartment: {
       type: Schema.Types.ObjectId,
-      ref: 'Academic Department',
+      ref: 'AcademicDepartment',
       required: true,
     },
     academicSemester: {

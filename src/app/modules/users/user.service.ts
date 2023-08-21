@@ -13,7 +13,6 @@ import { Student } from '../students/students.model';
 import httpStatus from 'http-status';
 import { IFaculty } from '../faculties/faculties.interface';
 import { Faculty } from '../faculties/faculties.model';
-
 const createStudent = async (
   student: IStudent,
   user: IUser
@@ -24,7 +23,6 @@ const createStudent = async (
     student.academicSemester
   );
 
-  // generate student id
   let newUserAllData = null;
   const session: ClientSession = await startSession();
   try {
@@ -32,16 +30,16 @@ const createStudent = async (
     const id = await generateStudentId(academicSemester);
     user.id = id;
     student.id = id;
-    user.password = await generateRandomPass();
-    //array
+
     const newStudent = await Student.create([student], { session });
 
     if (!newStudent.length) {
       throw new ApiError(httpStatus.BAD_REQUEST, 'Failed to create student');
     }
 
-    //set student -->  _id into user.student
     user.student = newStudent[0]._id;
+    user.password = await generateRandomPass();
+    console.log('user password', user.password);
 
     const newUser = await User.create([user], { session });
 
@@ -83,10 +81,10 @@ const createFaculty = async (
   user: IUser
 ): Promise<IUser | null> => {
   user.password = await generateRandomPass();
-  // set role
+  console.log('user password', user.password);
+
   user.role = 'faculty';
 
-  // generate faculties id
   let newUserAllData = null;
   const session = await startSession();
   try {

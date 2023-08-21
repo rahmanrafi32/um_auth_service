@@ -1,5 +1,7 @@
 import { model, Schema } from 'mongoose';
-import { IUser } from './user.interface';
+import { IUser, IUserModel } from './user.interface';
+import bcrypt from 'bcrypt';
+import config from '../../../config';
 
 const userSchema = new Schema(
   {
@@ -14,6 +16,14 @@ const userSchema = new Schema(
     password: {
       type: String,
       required: true,
+      select: 0, //for hide password from response
+    },
+    needsPasswordChange: {
+      type: Boolean,
+      default: true,
+    },
+    passwordChangedAt: {
+      type: Date,
     },
     student: {
       type: Schema.Types.ObjectId,
@@ -34,4 +44,33 @@ const userSchema = new Schema(
   }
 );
 
-export const User = model<IUser>('User', userSchema);
+userSchema.static('isUserExist', async function (id: string): Promise<
+  Partial<IUser | null>
+> {
+  return User.findOne(
+    { id },
+    {
+      id: 1,
+      needsPasswordChange: 1,
+      password: 1,
+      role: 1,
+    }
+  );
+});
+
+userSchema.static(
+  'isPasswordMatched',
+  async function (givenPass: string, savedPass: string): Promise<boolean> {
+    return bcrypt.compare(givenPass, savedPass);
+  }
+);
+
+userSchema.pre('save', async function (next) {
+  this.password = await bcrypt.hash(this.password, Number(config.salt_round));
+  if (!this.needsPasswordChange) {
+    this.passwordChangedAt = new Date();
+  }
+  next();
+});
+
+export const User = model<IUser, IUserModel>('User', userSchema);

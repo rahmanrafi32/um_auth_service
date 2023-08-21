@@ -69,7 +69,6 @@ const FacultySchema = new Schema<IFaculty>(
     },
     profileImage: {
       type: String,
-      // required: true,
     },
     academicFaculty: {
       type: Types.ObjectId,

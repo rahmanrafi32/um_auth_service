@@ -127,7 +127,7 @@ const deleteAdmin = async (id: string): Promise<IAdmin | null> => {
   }
 };
 
-export const AdminService = {
+export const adminService = {
   getAllAdmins,
   getSingleAdmin,
   updateAdmin,
